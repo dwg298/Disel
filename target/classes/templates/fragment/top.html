@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="top">
+	<input type="hidden" id="isLoginFail" th:value="${isLoginFail}">
+
+	<div class="row">
+		<div class="col text-end">
+			<div sec:authorize="isAnonymous()">
+				<span data-bs-toggle="modal" data-bs-target="#join_modal">JOIN</span>
+				<span data-bs-toggle="modal" data-bs-target="#login_modal">LOGIN</span>
+			</div>
+			<div sec:authorize="isAuthenticated()">
+				<span th:text="${#authentication.name}"></span>님 반갑습니다.
+				<a th:href="@{/logout}">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col text-center" style="font-weight: bold;">
+			<h1>S H O P</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+ 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<!-- <nav class="navbar navbar-expand-lg bg-light"> -->
+			  <div class="container-fluid">
+			    <a class="navbar-brand" href="#">Navbar</a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			      <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarNav">
+			      <ul class="navbar-nav">
+			        <li class="nav-item">
+			          <a class="nav-link active" aria-current="page" href="#">Home</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">Features</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">Pricing</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link disabled">Disabled</a>
+			        </li>
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+	</div>
+	
+<!-- login버튼 클릭 시 실행되는 모달 -->
+<!-- Modal -->
+<div class="modal fade" id="login_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="row g-3" action="/member/login" method="post">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="mb-3">
+			  <label for="memberId" class="form-label">I D</label>
+			  <input name="memberId" type="text" class="form-control" id="memberId" placeholder="Input your ID...">
+			</div>
+			<div class="mb-3">
+			  <label for="memberPW" class="form-label">PASSWORD</label>
+			  <input name="memberPw" type="password" class="form-control" id="memberPw" placeholder="Input your Password...">
+			</div>
+	   	  </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Login</button>
+	        <button type="button" class="btn btn-primary" onclick="login();">Ajax Login</button>
+	      </div>
+		</form>
+    </div>
+  </div>
+</div>
+
+<!-- join 클릭 시 실행되는 모달 -->
+<div class="modal fade" id="join_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">JOIN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     	<form class="row g-3" action="/member/join" method="post">
+		  <div class="col-12">
+		    <label for="memberId" class="form-label">ID</label>
+		    <input type="text" class="form-control" id="memberId" name="memberId">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberPw" class="form-label">PASSWORD</label>
+		    <input type="password" class="form-control" id="memberPw" name="memberPw">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberName" class="form-label">NAME</label>
+		    <input type="text" class="form-control" id="memberName" name="memberName">
+		  </div>
+		  <div class="col-9">
+		    <label for="memberAddr" class="form-label">ADDRESS</label>
+		    <input onclick="searchAddr();" type="text" class="form-control" id="memberAddr" name="memberAddr" readonly>
+		  </div>
+		  <div class="col-3">
+		  	<label for="" class="form-label">&nbsp;</label>
+			<input onclick="searchAddr();" type="button" class="btn btn-secondary form-control" value="Search">
+		  </div>
+		  <div class="col-12">
+		  	<input type="text" class="form-control" name="addrDetail">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberEmail" class="form-label">EMAIL</label>
+		    <input type="email" class="form-control" id="memberEmail" name="memberEmail">
+		  </div>
+		  <div class="col-12 d-grid gap-2">
+		    <button type="submit" class="btn btn-primary">JOIN</button>
+		  </div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" th:src="@{/js/layout/top.js}"></script>
+</div>
+</html>
+
+
+
+
+
+
+
+

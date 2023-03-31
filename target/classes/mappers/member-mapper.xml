@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="USERMapper">
+	<resultMap type="kh.study.shop.USER.vo.USERVO" id="USER">
+		<id column="USER_ID" 			property="USERId"/>
+		<result column="USER_PW" 		property="USERPw"/>
+		<result column="USER_NAME" 	property="USERName"/>
+		<result column="USER_ADDR" 	property="USERAddr"/>
+		<result column="ADDR_DETAIL" 	property="addrDetail"/>
+		<result column="USER_EMAIL" 	property="USEREmail"/>
+		<result column="USER_ROLE" 	property="USERRole"/>
+		<result column="USER_STATUS" 	property="USERStatus"/>
+	</resultMap>
+
+	<insert id="join">
+		INSERT INTO SHOP_USER (
+			USER_ID
+			, USER_PW
+			, USER_NAME
+			, USER_ADDR
+			, ADDR_DETAIL
+			, USER_EMAIL
+			, USER_STATUS
+			, USER_ROLE
+		) VALUES (
+			#{USERId}
+			, #{USERPw}
+			, #{USERName}
+			, #{USERAddr}
+			, #{addrDetail}
+			, #{USEREmail}
+			, #{USERStatus}
+			, #{USERRole}
+		)
+	</insert>
+	
+	<select id="login" resultMap="USER">
+		SELECT USER_ID
+			, USER_ROLE
+			, USER_PW
+		FROM SHOP_USER
+		WHERE USER_ID = #{USERId}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

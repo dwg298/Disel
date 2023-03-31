@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="sideFragment">
+	<ul class="list-group">
+	  <li class="list-group-item" th:classappend="${menu} eq '1' ? 'active' : ''" aria-current="true">상품등록</li>
+	  <li class="list-group-item">
+	  	<a th:href="@{/admin/itemManage}" th:classappend="${menu} eq '2' ? 'active' : ''">상품관리</a>
+	  </li>
+	  <li class="list-group-item">
+	  	<a th:href="@{/admin/memberManage}" th:classappend="${menu} eq '3' ? 'active' : ''">회원권한설정</a>
+	  </li>
+	  <li class="list-group-item">메뉴관리</li>
+	</ul>
+</div>
+
+</html>
+
+
+
+
+

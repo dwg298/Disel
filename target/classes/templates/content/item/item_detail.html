@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/base_layout}">
+
+<th:block layout:fragment="css">
+	<!-- <link rel="stylesheet" th:href="@{}"> -->
+</th:block>
+
+<div layout:fragment="content">
+	<div class="row justify-content-center">
+		<div class="col-6">
+			<div class="row mb-3">
+				<div class="col-6">이미지 영역</div>
+				<div class="col-6">
+					<div class="row mb-3">
+						<label for="" class="col-12 col-form-label">상품명</label>
+					</div>
+					<div class="row mb-3">
+						<label for="" class="col-12 col-form-label">가 격</label>
+					</div>
+					<div class="row mb-3">
+						<label for="" class="col-3 col-form-label">수 량</label>
+						<div class="col-9">
+							<input type="number" class="form-control" id="">
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label for="inputEmail3" class="col-12 col-form-label">총가격</label>
+					</div>
+					<div class="row mb-3">
+						<div class="col-6">
+							<button type="submit" class="btn btn-primary form-control">
+								구 매
+							</button>
+						</div>
+						<div class="col-6">
+							<button type="submit" class="btn btn-primary form-control">
+								장바구니
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-3">	
+				<div class="col-12">
+					상품 내용 영역	
+				</div>
+			</div>
+			<div class="row mb-3">	
+				<div class="col-12">
+					이미지 영역
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</html>
