@@ -7,9 +7,11 @@
 		<id column="USER_ID" 			property="USERId"/>
 		<result column="USER_PW" 		property="USERPw"/>
 		<result column="USER_NAME" 	property="USERName"/>
+		<result column="USER_GENDER" 	property="USERGender"/>
+		<result column="USER_TELL" 	property="USERTell"/>
 		<result column="USER_ADDR" 	property="USERAddr"/>
 		<result column="ADDR_DETAIL" 	property="addrDetail"/>
-		<result column="USER_EMAIL" 	property="USEREmail"/>
+		<result column="USER_MAIL" 	property="USERMail"/>
 		<result column="USER_ROLE" 	property="USERRole"/>
 		<result column="USER_STATUS" 	property="USERStatus"/>
 	</resultMap>
