@@ -21,15 +21,19 @@
 			USER_ID
 			, USER_PW
 			, USER_NAME
+			, USER_GENDER
+			, USER_TELL
 			, USER_ADDR
 			, ADDR_DETAIL
 			, USER_EMAIL
-			, USER_STATUS
 			, USER_ROLE
+			, USER_STATUS
 		) VALUES (
 			#{USERId}
 			, #{USERPw}
 			, #{USERName}
+			, #{USER_GENDER}
+			, #{USER_TELL}
 			, #{USERAddr}
 			, #{addrDetail}
 			, #{USEREmail}
